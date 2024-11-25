@@ -1,9 +1,10 @@
 package Main;
 
-public enum IdEnum {
+public enum GOType {
 	Player(),
 	Trail(),
 	SlowEnemy(),
+	SmartEnemy(),
 	BasicEnemy(),
 	FastEnemy(),
 	MediumEnemy(),

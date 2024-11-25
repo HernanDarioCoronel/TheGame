@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import Main.Handler;
-import Main.IdEnum;
+import Main.GOType;
 
 public class Trail extends GameObject {
 
@@ -16,13 +16,15 @@ public class Trail extends GameObject {
 	private float life;
 	private static final float MODIFIER = 0.99999999f;
 
-	public Trail(int xInitPos, int yInitPos, int width, int height, int velocity, IdEnum id, Handler handler,
+
+	public Trail(float xPos, float yPos, float width, float height, float velocity, Handler handler,
 			Color color, float life) {
-		super(xInitPos, yInitPos, width * MODIFIER, height * MODIFIER, velocity, id);
+		super(xPos, yPos, width * MODIFIER, height * MODIFIER, velocity, GOType.Trail);
 		this.handler = handler;
 		this.color = color;
 		this.life = life;
 	}
+
 
 	@Override
 	public void tick() {

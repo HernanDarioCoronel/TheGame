@@ -8,6 +8,7 @@ import java.util.Random;
 
 import Main.GameObjects.BasicEnemy;
 import Main.GameObjects.Player;
+import Main.GameObjects.SmartEnemy;
 
 public class Game extends Canvas implements Runnable {
 
@@ -34,8 +35,7 @@ public class Game extends Canvas implements Runnable {
 		hud = new HUD();
 		spawn = new Spawn(handler, hud);
 
-		Player player1 = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, 32, 32, SpeedEnum.VeryFast.getValue(),
-				IdEnum.Player, handler);
+		Player player1 = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, 32, 32, SpeedEnum.VeryFast.getValue(), handler);
 
 		handler.addObject(player1);
 
@@ -53,14 +53,14 @@ public class Game extends Canvas implements Runnable {
 		// game loop
 		this.requestFocus();
 		long lastTime = System.nanoTime();
-		double amountOfTicks = 60.0;
-		double nanoSeconds = 1000000000 / amountOfTicks;
+		final double TARGET_FRAMERATE = 60.0;
+		final double OPTIMAL_FRAMERATE = 1000000000 / TARGET_FRAMERATE;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
 		int frames = 0;
 		while (running) {
 			long now = System.nanoTime();
-			delta += (now - lastTime) / nanoSeconds;
+			delta += (now - lastTime) / OPTIMAL_FRAMERATE;
 			lastTime = now;
 			while (delta >= 1) {
 				this.tick();

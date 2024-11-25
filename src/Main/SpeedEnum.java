@@ -1,19 +1,19 @@
 package Main;
 
 public enum SpeedEnum {
-	VerySlow(1), Slow(2), Normal(3), Fast(4), VeryFast(5);
+	VerySlow(1.0f), Slow(2.0f), Normal(3.0f), Fast(4.0f), VeryFast(5.0f);
 
-	private int value;
+	private float value;
 
-	private SpeedEnum(int value) {
+	private SpeedEnum(float value) {
 		this.setValue(value);
 	}
 
-	public int getValue() {
+	public float getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(float value) {
 		this.value = value;
 	}
 
