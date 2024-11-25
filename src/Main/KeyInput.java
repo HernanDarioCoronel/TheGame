@@ -7,39 +7,29 @@ import Main.GameObjects.GameObject;
 
 public class KeyInput extends KeyAdapter {
 
-	private GameObject player1;
-	private boolean[] keydown;
+	private final GameObject player;
 
-	public KeyInput(GameObject player1) {
-		this.player1 = player1;
-		keydown = new boolean[4];
-		keydown[0] = false;
-		keydown[1] = false;
-		keydown[2] = false;
-		keydown[3] = false;
+	public KeyInput(GameObject player) {
+		this.player = player;
 	}
 	
 	public void keyTyped(KeyEvent e) {keyPressed(e);}
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		float velocity = this.player1.getVelocity();
-		System.out.println(key);
+		float velocity = this.player.getVelocity();
+
 		if (key == KeyEvent.VK_W) {
-			this.player1.addYVelocity(-velocity);
-			this.keydown[0] = true;
+			this.player.addYVelocity(-velocity);
 		}
 		if (key == KeyEvent.VK_S) {
-			this.player1.addYVelocity(velocity);
-			this.keydown[1] = true;
+			this.player.addYVelocity(velocity);
 		}
 		if (key == KeyEvent.VK_A) {
-			this.player1.addXVelocity(-velocity);
-			this.keydown[2] = true;
+			this.player.addXVelocity(-velocity);
 		}
 		if (key == KeyEvent.VK_D) {
-			this.player1.addXVelocity(velocity);
-			this.keydown[3] = true;
+			this.player.addXVelocity(velocity);
 		}
 
 	}
@@ -47,24 +37,14 @@ public class KeyInput extends KeyAdapter {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_W) {
-			this.keydown[0] = false;
-		}
-		if (key == KeyEvent.VK_S) {
-			this.keydown[1] = false;
-		}
-		if (key == KeyEvent.VK_A) {
-			this.keydown[2] = false;
-		}
-		if (key == KeyEvent.VK_D) {
-			this.keydown[3] = false;
-		}
-
-		if (!this.keydown[0] && !this.keydown[1]) {
-			this.player1.setVelY(0);
-		}
-		if (!this.keydown[2] && !this.keydown[3]) {
-			this.player1.setVelX(0);
+		if(key == KeyEvent.VK_RIGHT) {
+			this.player.setVelX(0);
+		}else if(key == KeyEvent.VK_LEFT) {
+			this.player.setVelX(0);
+		}else if(key == KeyEvent.VK_DOWN) {
+			this.player.setVelY(0);
+		}else if(key == KeyEvent.VK_UP) {
+			this.player.setVelY(0);
 		}
 	}
 

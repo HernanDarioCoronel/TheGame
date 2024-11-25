@@ -5,7 +5,7 @@ public enum SpeedEnum {
 
 	private float value;
 
-	private SpeedEnum(float value) {
+	SpeedEnum(float value) {
 		this.setValue(value);
 	}
 

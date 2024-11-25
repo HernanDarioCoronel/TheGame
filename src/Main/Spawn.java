@@ -7,10 +7,10 @@ import Main.GameObjects.FastEnemy;
 import Main.GameObjects.SmartEnemy;
 
 public class Spawn {
-	private Handler handler;
-	private HUD hud;
+	private final Handler handler;
+	private final HUD hud;
 	private int scoreKeep = 0;
-	private Random rnd;
+	private final Random rnd;
 
 	public Spawn(Handler handler, HUD hud) {
 		this.handler = handler;

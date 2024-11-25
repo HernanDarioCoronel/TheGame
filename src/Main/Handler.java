@@ -10,7 +10,7 @@ public class Handler {
 	public LinkedList<GameObject> objectList;
 
 	public Handler() {
-		objectList = new LinkedList<GameObject>();
+		objectList = new LinkedList<>();
 	}
 
 	public void removeObject(GameObject obj) {

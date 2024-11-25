@@ -44,7 +44,7 @@ public class HUD {
 
 		// box background
 		g.setColor(Color.darkGray);
-		g.fillRect(15, 15, (int) 200, 32);
+		g.fillRect(15, 15,  200, 32);
 
 		// health bar
 		g.setColor(HealthBarColor());
@@ -66,4 +66,4 @@ public class HUD {
 		return new Color((int) red, (int) green, (int) blue);
 	}
 
-};
+}
